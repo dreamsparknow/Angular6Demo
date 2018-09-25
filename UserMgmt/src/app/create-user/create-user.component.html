@@ -1,0 +1,130 @@
+<p>
+  create-user works!
+</p>
+{{diagnostic}}
+<div class="container">
+  <div [hidden]="submitted">
+    <h1>User Form</h1>
+    <form (ngSubmit)="createUser(user)" #createUserForm="ngForm">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" id="firstName"
+               required
+               [(ngModel)]="user.firstName" name="firstName"
+               #firstName="ngModel">
+        <div [hidden]="firstName.valid || firstName.pristine"
+             class="alert alert-danger">
+             firstName is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" id="lastName"
+               required
+               [(ngModel)]="user.lastName" name="lastName"
+               #lastName="ngModel">
+        <div [hidden]="lastName.valid || lastName.pristine"
+             class="alert alert-danger">
+             lastName is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="address1">Address1</label>
+        <input type="text" class="form-control" id="address1"
+               required
+               [(ngModel)]="user.address1" name="address1"
+               #address1="ngModel">
+        <div [hidden]="address1.valid || address1.pristine"
+             class="alert alert-danger">
+             address1 is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="address2">Address2</label>
+        <input type="text" class="form-control" id="address2"
+               required
+               [(ngModel)]="user.address2" name="address2"
+               #address2="ngModel">
+        <div [hidden]="address2.valid || address2.pristine"
+             class="alert alert-danger">
+             address2 is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phoneNum">Contact #</label>
+        <input type="text" class="form-control" id="phoneNum"
+               required
+               [(ngModel)]="user.phoneNum" name="phoneNum"
+               #phoneNum="ngModel">
+        <div [hidden]="phoneNum.valid || phoneNum.pristine"
+             class="alert alert-danger">
+             phoneNum is required
+        </div>
+      </div>
+ 
+
+      <!-- 
+      <div class="form-group">
+        <label for="alterEgo">Alter Ego</label>
+        <input type="text" class="form-control" id="alterEgo"
+               [(ngModel)]="model.alterEgo" name="alterEgo">
+      </div>
+ 
+      <div class="form-group">
+        <label for="power">Hero Power</label>
+        <select class="form-control" id="power"
+                required
+                [(ngModel)]="model.power" name="power"
+                #power="ngModel">
+          <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+        </select>
+        <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
+          Power is required
+        </div>
+      </div>
+ 
+    -->
+      <button type="submit" class="btn btn-success" [disabled]="!createUserForm.form.valid">Submit</button>
+      <!--<button type="button" class="btn btn-default" (click)="newHero(); heroForm.reset()">New Hero</button> -->
+    </form>
+  </div>
+ 
+  <div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-xs-3">First Name</div>
+      <div class="col-xs-9  pull-left">{{ user.firstName }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Last Name</div>
+      <div class="col-xs-9  pull-left">{{ user.lastName }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Address1 </div>
+      <div class="col-xs-9  pull-left">{{ user.address1 }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Address2</div>
+      <div class="col-xs-9  pull-left">{{ user.address2 }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Phone Number</div>
+      <div class="col-xs-9  pull-left">{{ user.phoneNum }}</div>
+    </div>
+
+
+    <!--
+    <div class="row">
+      <div class="col-xs-3">Alter Ego</div>
+      <div class="col-xs-9 pull-left">{{ model.alterEgo }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Power</div>
+      <div class="col-xs-9 pull-left">{{ model.power }}</div>
+    </div>
+  -->
+    <br>
+    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+  </div>
+
+</div>
